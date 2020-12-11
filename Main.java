@@ -50,6 +50,17 @@ public class Main {
         System.out.println();
     }
 
+    public void deleteNodeFromStart(){
+        if(size==0){
+            System.out.println("\nList is Empty");
+        }else{
+            System.out.println("\ndeleting node " + head.data + " from start");
+            head = head.next;
+            tail.next=head;
+            size--;
+        }
+    }
+
     //get Size
     public int getSize(){
         return size;
@@ -62,6 +73,8 @@ public class Main {
         circle.addNodeAtStart(1);
         circle.print();
         circle.addNodeAtEnd(4);
+        circle.print();
+        circle.deleteNodeFromStart();
         circle.print();
         
     }
