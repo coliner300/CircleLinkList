@@ -61,6 +61,18 @@ public class Main {
         }
     }
 
+    public int elementAt(int index){
+        if(index>size){
+            return -1;
+        }
+        Node n = head;
+        while(index-1!=0){
+            n=n.next;
+            index--;
+        }
+        return n.data;
+    }
+
     //get Size
     public int getSize(){
         return size;
