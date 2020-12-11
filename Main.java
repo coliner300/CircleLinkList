@@ -54,12 +54,32 @@ public class Main {
         if(size==0){
             System.out.println("\nList is Empty");
         }else{
-            System.out.println("\ndeleting node " + head.data + " from start");
+            System.out.println("\nDeleting node " + head.data + " from start");
             head = head.next;
             tail.next=head;
             size--;
         }
     }
+
+    public void deleteNode(int valueToDelete) {
+    Node currentNode = head;
+
+    if (head != null) {
+        if (currentNode.data == valueToDelete) {
+            head = head.next;
+            tail.next = head;
+        } else {
+            do {
+                Node next = currentNode.next;
+                if (next.data == valueToDelete) {
+                    currentNode.next = next.next;
+                    break;
+                }
+                currentNode = currentNode.next;
+            } while (currentNode != head);
+        }
+    }
+}
 
     public int elementAt(int index){
         if(index>size){
@@ -87,6 +107,10 @@ public class Main {
         circle.addNodeAtEnd(4);
         circle.print();
         circle.deleteNodeFromStart();
+        circle.print();
+        System.out.println("Size of linked list: "+ circle.getSize());
+        System.out.println("Element at 2nd position: "+ circle.elementAt(2));
+        circle.deleteNode(2);
         circle.print();
         
     }
