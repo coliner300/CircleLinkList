@@ -21,6 +21,19 @@ public class Main {
         size++;
     }
 
+    public void addNodeAtEnd(int data){
+        if(size==0){
+            addNodeAtStart(data);
+        }else{
+            Node n = new Node(data);
+            tail.next =n;
+            tail=n;
+            tail.next = head;
+            size++;
+        }
+        System.out.println("\nNode " + data + " is added at the end of the list");
+    }
+
     //print the linked list
     public void print(){
         System.out.print("Circular Linked List:");
@@ -48,12 +61,9 @@ public class Main {
         circle.addNodeAtStart(2);
         circle.addNodeAtStart(1);
         circle.print();
-        circle.deleteNodeFromStart();
-        circle.print();
         circle.addNodeAtEnd(4);
         circle.print();
-        System.out.println("Size of linked list: "+ circle.getSize());
-        System.out.println("Element at 2nd position: "+ circle.elementAt(2));
+        
     }
 
 }
